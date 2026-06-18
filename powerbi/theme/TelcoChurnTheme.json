@@ -1,0 +1,112 @@
+{
+  "name": "Telco Churn Executive",
+  "dataColors": [
+    "#00A8CC",
+    "#1B2A4A",
+    "#E84855",
+    "#2ECC71",
+    "#5C6BC0",
+    "#FFB347",
+    "#7B68EE",
+    "#48C9B0"
+  ],
+  "foreground": "#1B2A4A",
+  "foregroundNeutralSecondary": "#5A6A7A",
+  "backgroundLight": "#F4F6F8",
+  "background": "#FFFFFF",
+  "backgroundNeutral": "#E8ECF0",
+  "tableAccent": "#00A8CC",
+  "good": "#2ECC71",
+  "neutral": "#FFB347",
+  "bad": "#E84855",
+  "maximum": "#00A8CC",
+  "center": "#FFB347",
+  "minimum": "#E84855",
+  "textClasses": {
+    "callout": {
+      "fontSize": 32,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1B2A4A"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1B2A4A"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1B2A4A"
+    },
+    "label": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI",
+      "color": "#5A6A7A"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "color": { "solid": { "color": "#E8ECF0" } },
+            "show": true,
+            "radius": 6
+          }
+        ],
+        "title": [
+          {
+            "fontColor": { "solid": { "color": "#1B2A4A" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "padding": [
+          {
+            "top": 8,
+            "bottom": 8,
+            "left": 10,
+            "right": 10
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": { "solid": { "color": "#5A6A7A" } },
+            "fontSize": 11
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#1B2A4A" } }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F4F6F8" } },
+            "transparency": 0
+          }
+        ],
+        "header": [
+          {
+            "fontColor": { "solid": { "color": "#1B2A4A" } }
+          }
+        ]
+      }
+    }
+  }
+}

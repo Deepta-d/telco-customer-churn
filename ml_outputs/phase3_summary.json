@@ -1,0 +1,53 @@
+{
+  "best_model": "catboost",
+  "test_metrics": {
+    "model": "catboost",
+    "accuracy": 0.758,
+    "precision": 0.5288,
+    "recall": 0.8102,
+    "f1": 0.6399,
+    "roc_auc": 0.8571
+  },
+  "top_shap_features": [
+    {
+      "feature": "num__contract_ordinal",
+      "mean_abs_shap": 0.3372
+    },
+    {
+      "feature": "num__Tenure Months",
+      "mean_abs_shap": 0.3176
+    },
+    {
+      "feature": "num__household_size_proxy",
+      "mean_abs_shap": 0.2804
+    },
+    {
+      "feature": "num__has_dependents",
+      "mean_abs_shap": 0.2708
+    },
+    {
+      "feature": "num__cltv_per_month",
+      "mean_abs_shap": 0.2427
+    },
+    {
+      "feature": "cat__Contract_Month-to-month",
+      "mean_abs_shap": 0.2061
+    },
+    {
+      "feature": "cat__Internet Service_Fiber optic",
+      "mean_abs_shap": 0.1754
+    },
+    {
+      "feature": "num__is_month_to_month",
+      "mean_abs_shap": 0.1657
+    },
+    {
+      "feature": "cat__Online Security_No",
+      "mean_abs_shap": 0.1519
+    },
+    {
+      "feature": "cat__Payment Method_Electronic check",
+      "mean_abs_shap": 0.1399
+    }
+  ]
+}

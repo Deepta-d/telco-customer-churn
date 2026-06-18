@@ -1,0 +1,58 @@
+{
+  "logistic_regression": {
+    "model__solver": "lbfgs",
+    "model__penalty": "l2",
+    "model__C": 10
+  },
+  "random_forest": {
+    "model__n_estimators": 300,
+    "model__min_samples_split": 10,
+    "model__max_depth": 10
+  },
+  "gradient_boosting": {
+    "model__subsample": 1.0,
+    "model__n_estimators": 100,
+    "model__max_depth": 3,
+    "model__learning_rate": 0.1
+  },
+  "adaboost": {
+    "model__n_estimators": 200,
+    "model__learning_rate": 1.0
+  },
+  "svm_rbf": {
+    "model__gamma": 0.01,
+    "model__C": 0.1
+  },
+  "knn": {
+    "model__weights": "uniform",
+    "model__p": 2,
+    "model__n_neighbors": 15
+  },
+  "mlp": {
+    "model__learning_rate_init": 0.001,
+    "model__hidden_layer_sizes": [
+      128
+    ],
+    "model__alpha": 0.01
+  },
+  "xgboost": {
+    "model__subsample": 0.8,
+    "model__n_estimators": 300,
+    "model__max_depth": 3,
+    "model__learning_rate": 0.05,
+    "model__colsample_bytree": 0.8
+  },
+  "lightgbm": {
+    "model__subsample": 1.0,
+    "model__num_leaves": 15,
+    "model__n_estimators": 100,
+    "model__max_depth": 3,
+    "model__learning_rate": 0.1
+  },
+  "catboost": {
+    "model__learning_rate": 0.05,
+    "model__l2_leaf_reg": 3,
+    "model__iterations": 200,
+    "model__depth": 4
+  }
+}

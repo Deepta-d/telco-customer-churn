@@ -1,0 +1,1 @@
+"""GenAI Churn Copilot package."""

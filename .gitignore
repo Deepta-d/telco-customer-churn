@@ -1,0 +1,35 @@
+# Secrets — never commit
+.env
+**/.env
+!**/.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# ML artifacts (regenerate via notebooks)
+ml_outputs/models/
+ml_outputs/splits/
+ml_outputs/*.csv
+ml_outputs/shap/*.csv
+notebooks/catboost_info/
+
+# Large intermediate datasets (regenerate from scripts)
+Telco_customer_churn_cleaned.csv
+Telco_customer_churn_engineered.csv
+sql/telco_customers_sql_ready.csv
+powerbi/telco_churn_powerbi.csv
+
+# Power BI binary (build locally)
+*.pbix
+
+# Local exports
+PROJECT_RESEARCH_REPORT.pdf
+
+# IDE / OS
+.cursor/
+.DS_Store
+Thumbs.db

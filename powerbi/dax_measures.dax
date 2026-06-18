@@ -1,0 +1,144 @@
+// Telco Churn Dashboard — DAX Measures
+// Table name: rename to match your import (default: telco_churn_powerbi)
+
+// --- Core KPIs ---
+Total Customers =
+DISTINCTCOUNT ( telco_churn_powerbi[customer_id] )
+
+Churned Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_label] = "Yes"
+)
+
+Retained Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_label] = "No"
+)
+
+Churn Rate % =
+DIVIDE ( [Churned Customers], [Total Customers] )
+
+Retention Rate % =
+1 - [Churn Rate %]
+
+Monthly Revenue Loss =
+CALCULATE (
+    SUM ( telco_churn_powerbi[monthly_charges] ),
+    telco_churn_powerbi[churn_label] = "Yes"
+)
+
+Total Monthly Revenue =
+SUM ( telco_churn_powerbi[monthly_charges] )
+
+ARPU =
+AVERAGE ( telco_churn_powerbi[monthly_charges] )
+
+ARPU Churned =
+CALCULATE (
+    AVERAGE ( telco_churn_powerbi[monthly_charges] ),
+    telco_churn_powerbi[churn_label] = "Yes"
+)
+
+ARPU Retained =
+CALCULATE (
+    AVERAGE ( telco_churn_powerbi[monthly_charges] ),
+    telco_churn_powerbi[churn_label] = "No"
+)
+
+// --- Risk & retention action ---
+High Risk Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_risk_pct] >= 70
+)
+
+Medium Risk Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_risk_pct] >= 40,
+    telco_churn_powerbi[churn_risk_pct] < 70
+)
+
+Low Risk Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_risk_pct] < 40
+)
+
+Active High Risk Customers =
+CALCULATE (
+    [Total Customers],
+    telco_churn_powerbi[churn_label] = "No",
+    telco_churn_powerbi[churn_risk_pct] >= 70
+)
+
+Revenue at Risk =
+CALCULATE (
+    SUM ( telco_churn_powerbi[monthly_charges] ),
+    telco_churn_powerbi[churn_label] = "No",
+    telco_churn_powerbi[churn_risk_pct] >= 70
+)
+
+Avg Risk Score % =
+AVERAGE ( telco_churn_powerbi[churn_risk_pct] )
+
+// --- Segment churn rates ---
+Churn Rate by Context % =
+DIVIDE (
+    CALCULATE (
+        COUNTROWS ( telco_churn_powerbi ),
+        telco_churn_powerbi[churn_label] = "Yes"
+    ),
+    COUNTROWS ( telco_churn_powerbi )
+)
+
+// --- Time-based (join cohort) ---
+Customers by Join Month =
+CALCULATE (
+    [Total Customers],
+    ALLEXCEPT ( telco_churn_powerbi, telco_churn_powerbi[join_month] )
+)
+
+Churn Rate by Join Month % =
+DIVIDE (
+    CALCULATE (
+        COUNTROWS ( telco_churn_powerbi ),
+        telco_churn_powerbi[churn_label] = "Yes"
+    ),
+    COUNTROWS ( telco_churn_powerbi )
+)
+
+Monthly Revenue by Join Month =
+SUMX (
+    VALUES ( telco_churn_powerbi[join_month] ),
+    CALCULATE ( SUM ( telco_churn_powerbi[monthly_charges] ) )
+)
+
+// --- Top 10 filter helper (use on table visual) ---
+Is Top 10 At Risk =
+VAR RankInActive =
+    RANKX (
+        ALL ( telco_churn_powerbi[customer_id] ),
+        CALCULATE ( MAX ( telco_churn_powerbi[churn_risk_pct] ) ),
+        ,
+        DESC,
+        DENSE
+    )
+RETURN
+    telco_churn_powerbi[churn_label] = "No"
+        && NOT ISBLANK ( telco_churn_powerbi[top10_risk_rank] )
+        && telco_churn_powerbi[top10_risk_rank] <= 10
+
+// --- Conditional formatting helpers ---
+Churn Rate Status =
+IF ( [Churn Rate %] > 0.30, "Critical", IF ( [Churn Rate %] > 0.20, "Warning", "Good" ) )
+
+Risk Status Color =
+SWITCH (
+    TRUE (),
+    [Churn Rate %] >= 0.30, "Red",
+    [Churn Rate %] >= 0.20, "Orange",
+    "Green"
+)

@@ -1,0 +1,221 @@
+{
+  "dataset_rows": 7043,
+  "churn": {
+    "counts": {
+      "No": 5174,
+      "Yes": 1869
+    },
+    "rates_pct": {
+      "No": 73.46,
+      "Yes": 26.54
+    },
+    "overall_churn_rate_pct": 26.54
+  },
+  "correlations": {
+    "top_churn_correlations": {
+      "engagement_score": 0.411,
+      "risk_score": 0.407,
+      "contract_ordinal": 0.397,
+      "Tenure Months": 0.352,
+      "cltv_per_month": 0.297,
+      "household_size_proxy": 0.236,
+      "Total Charges": 0.198,
+      "Monthly Charges": 0.193
+    }
+  },
+  "feature_importance": {
+    "top_features": [
+      {
+        "feature": "risk_score",
+        "importance": 0.0873
+      },
+      {
+        "feature": "engagement_score",
+        "importance": 0.078
+      },
+      {
+        "feature": "Contract_Month-to-month",
+        "importance": 0.0724
+      },
+      {
+        "feature": "contract_ordinal",
+        "importance": 0.0697
+      },
+      {
+        "feature": "cltv_per_month",
+        "importance": 0.0543
+      },
+      {
+        "feature": "Tenure Months",
+        "importance": 0.0505
+      },
+      {
+        "feature": "is_month_to_month",
+        "importance": 0.0504
+      },
+      {
+        "feature": "Online Security_No",
+        "importance": 0.0384
+      },
+      {
+        "feature": "Total Charges",
+        "importance": 0.0368
+      },
+      {
+        "feature": "Tech Support_No",
+        "importance": 0.0328
+      },
+      {
+        "feature": "avg_monthly_spend",
+        "importance": 0.028
+      },
+      {
+        "feature": "Monthly Charges",
+        "importance": 0.0267
+      },
+      {
+        "feature": "internet_fiber",
+        "importance": 0.0254
+      },
+      {
+        "feature": "Internet Service_Fiber optic",
+        "importance": 0.0253
+      },
+      {
+        "feature": "has_dependents",
+        "importance": 0.0244
+      }
+    ]
+  },
+  "segmentation": {
+    "segments": [
+      {
+        "segment": "Low Risk",
+        "customers": 1748,
+        "churn_rate_pct": 3.43,
+        "avg_tenure_months": 58.9,
+        "avg_monthly_charges": 62.85,
+        "avg_risk_score": 19.6
+      },
+      {
+        "segment": "Medium Risk",
+        "customers": 1031,
+        "churn_rate_pct": 8.83,
+        "avg_tenure_months": 41.5,
+        "avg_monthly_charges": 62.34,
+        "avg_risk_score": 51.6
+      },
+      {
+        "segment": "High Risk",
+        "customers": 4264,
+        "churn_rate_pct": 40.29,
+        "avg_tenure_months": 19.3,
+        "avg_monthly_charges": 66.13,
+        "avg_risk_score": 96.1
+      }
+    ]
+  },
+  "churn_breakdowns": {
+    "Contract": [
+      {
+        "category": "Month-to-month",
+        "churn_rate_pct": 42.71,
+        "count": 3875
+      },
+      {
+        "category": "One year",
+        "churn_rate_pct": 11.27,
+        "count": 1473
+      },
+      {
+        "category": "Two year",
+        "churn_rate_pct": 2.83,
+        "count": 1695
+      }
+    ],
+    "Internet Service": [
+      {
+        "category": "Fiber optic",
+        "churn_rate_pct": 41.89,
+        "count": 3096
+      },
+      {
+        "category": "DSL",
+        "churn_rate_pct": 18.96,
+        "count": 2421
+      },
+      {
+        "category": "No",
+        "churn_rate_pct": 7.4,
+        "count": 1526
+      }
+    ],
+    "tenure_group": [
+      {
+        "category": "New",
+        "churn_rate_pct": 47.44,
+        "count": 2186
+      },
+      {
+        "category": "Established",
+        "churn_rate_pct": 25.54,
+        "count": 1856
+      },
+      {
+        "category": "Loyal",
+        "churn_rate_pct": 11.93,
+        "count": 3001
+      }
+    ],
+    "Payment Method": [
+      {
+        "category": "Electronic check",
+        "churn_rate_pct": 45.29,
+        "count": 2365
+      },
+      {
+        "category": "Mailed check",
+        "churn_rate_pct": 19.11,
+        "count": 1612
+      },
+      {
+        "category": "Bank transfer (automatic)",
+        "churn_rate_pct": 16.71,
+        "count": 1544
+      },
+      {
+        "category": "Credit card (automatic)",
+        "churn_rate_pct": 15.24,
+        "count": 1522
+      }
+    ]
+  },
+  "added_features": [
+    "tenure_group",
+    "avg_monthly_spend",
+    "charge_drift",
+    "cltv_per_month",
+    "is_senior",
+    "has_partner",
+    "has_dependents",
+    "household_size_proxy",
+    "family_household",
+    "contract_ordinal",
+    "is_month_to_month",
+    "is_paperless",
+    "is_autopay",
+    "is_electronic_check",
+    "internet_fiber",
+    "internet_dsl",
+    "no_internet",
+    "has_phone",
+    "has_multiple_lines",
+    "addon_services_count",
+    "streaming_services_count",
+    "total_services_count",
+    "has_streaming_bundle",
+    "high_monthly_charge",
+    "engagement_score",
+    "risk_score"
+  ]
+}
