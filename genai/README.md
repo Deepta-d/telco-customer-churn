@@ -116,37 +116,20 @@ Run `ollama pull llama3.2` first.
 
 ### `ollama` is not recognized
 
-Ollama installs to `%LOCALAPPDATA%\Programs\Ollama\` (not `AppData\Local\Ollama`).
+Ollama installs to `%LOCALAPPDATA%\Programs\Ollama\`. Refresh PATH in the current terminal:
 
-**Most common cause in Cursor:** the IDE was open before Ollama was installed, so terminals keep an old PATH even after you close/reopen a tab.
-
-**Fix A — One-line PATH refresh (no script file needed):**
 ```powershell
 $env:PATH = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' + [Environment]::GetEnvironmentVariable('Path','User')
 ollama --version
 ```
 
-**Fix B — Use batch files (works when `.ps1` scripts are blocked):**
-```powershell
-.\genai\refresh_path.bat
-.\genai\run_copilot.bat
-```
+Or use the full path:
 
-**Fix C — Use the Ollama wrapper:**
-```powershell
-.\genai\ollama.cmd --version
-.\genai\ollama.cmd list
-```
-
-**If `refresh_path.ps1` fails with "running scripts is disabled":**  
-Your PC blocks PowerShell scripts. Use Fix A, B, or C above instead (no policy change needed).
-
-**Fix D — Full path:**
 ```powershell
 & "$env:LOCALAPPDATA\Programs\Ollama\ollama.exe" --version
 ```
 
-**Fix E — Restart Cursor completely** (quit the app, reopen) so new terminals inherit PATH.
+Restart Cursor after installing Ollama so new terminals inherit PATH.
 
 ### Not enough disk space (C: drive full)
 
