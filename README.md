@@ -1,5 +1,23 @@
 # Telco Customer Churn Analytics
 
+**Business question:** Which customers are most likely to cancel their service, what drives them to leave, and where should the business focus its retention efforts?
+
+**What I built:** An end-to-end churn analysis on 7,043 telecom customers: Python data cleaning and analysis, 43 MySQL business queries, a machine learning model that predicts which customers will leave, a Power BI dashboard, and an AI assistant that answers questions about the data in plain English.
+
+### Key findings
+
+- **About 1 in 4 customers leave:** The overall churn rate is **26.5%**.
+- **Contract length is the biggest lever:** Customers on month-to-month contracts churn at **42.7%**, about 15 times the rate of two-year contract holders. Short tenure is the second-strongest driver.
+- **Other high-risk groups:** Customers paying by electronic check churn at **45.3%** and fiber optic customers at **41.9%**, pointing to price sensitivity and competition.
+- **Early warning that works:** The best model (CatBoost) catches **81%** of customers who actually leave (ROC-AUC **0.86**), so retention teams can reach them before they cancel.
+- **Recommended actions:** Offer contract upgrade incentives to new month-to-month customers, run retention outreach for fiber customers with high monthly bills, and encourage auto-pay enrollment.
+
+**Tech stack:** Python (pandas, scikit-learn, CatBoost, SHAP), MySQL, Power BI, Streamlit
+
+Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPORT.md)
+
+---
+
 End-to-end churn analytics on the IBM Telco dataset (7,043 customers): Python EDA, MySQL BI, machine learning, Power BI dashboards, and a GenAI Streamlit copilot.
 
 ## Phases
