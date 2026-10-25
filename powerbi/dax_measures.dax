@@ -33,7 +33,7 @@ Total Monthly Revenue =
 SUM ( telco_churn_powerbi[monthly_charges] )
 
 ARPU =
-AVERAGE ( telco_churn_powerbi[monthly_charges] )
+ROUND ( AVERAGE ( telco_churn_powerbi[monthly_charges] ), 2 )
 
 ARPU Churned =
 CALCULATE (

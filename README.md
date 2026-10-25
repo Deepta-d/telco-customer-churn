@@ -18,7 +18,7 @@ Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPO
 
 ### Power BI dashboard
 
-**Executive Summary:** headline KPIs (customers, churn rate, revenue lost to churn, revenue at risk from current high-risk customers) and the ten active customers with the highest predicted churn risk.
+**Executive Summary:** headline KPIs (customers, churn rate, revenue lost to churn, revenue at risk from current high-risk customers), churn rate by payment method (electronic check customers churn at 45.3%), and the ten active customers with the highest predicted churn risk.
 
 ![Executive Summary dashboard](powerbi/screenshots/01_executive_summary.png)
 
@@ -26,7 +26,7 @@ Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPO
 
 ![Churn Analysis dashboard](powerbi/screenshots/02_churn_analysis.png)
 
-**Revenue Insights:** average revenue per user (ARPU), monthly revenue lost by contract type, and churn rate by contract type and age segment.
+**Revenue Insights:** average revenue per user (ARPU), monthly revenue lost by contract type, revenue versus churn by internet service (fiber brings in the most revenue but churns at 41.9%), and ARPU and churn rate by contract type and age group.
 
 ![Revenue Insights dashboard](powerbi/screenshots/03_revenue_insights.png)
 
