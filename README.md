@@ -16,6 +16,24 @@
 
 Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPORT.md)
 
+### Power BI dashboard
+
+**Executive Summary:** headline KPIs (customers, churn rate, revenue lost to churn, revenue at risk from current high-risk customers) and the ten active customers with the highest predicted churn risk.
+
+![Executive Summary dashboard](powerbi/screenshots/01_executive_summary.png)
+
+**Churn Analysis:** churn rate by contract type, age segment, city and internet service. Month-to-month customers churn at 43% versus 3% for two-year contracts, and 565 active customers are flagged as high risk.
+
+![Churn Analysis dashboard](powerbi/screenshots/02_churn_analysis.png)
+
+**Revenue Insights:** average revenue per user (ARPU), monthly revenue lost by contract type, and churn rate by contract type and age segment.
+
+![Revenue Insights dashboard](powerbi/screenshots/03_revenue_insights.png)
+
+**Customer Behavior:** churn by service usage and tenure, engagement versus predicted churn risk, and a decomposition tree showing what drives churn.
+
+![Customer Behavior dashboard](powerbi/screenshots/04_customer_behavior.png)
+
 ---
 
 End-to-end churn analytics on the IBM Telco dataset (7,043 customers): Python EDA, MySQL BI, machine learning, Power BI dashboards, and a GenAI Streamlit copilot.
