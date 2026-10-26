@@ -18,7 +18,7 @@ Full methodology and results: [PROJECT_RESEARCH_REPORT.md](PROJECT_RESEARCH_REPO
 
 ### Power BI dashboard
 
-**Executive Summary:** headline KPIs (customers, churn rate, revenue lost to churn, revenue at risk from current high-risk customers), churn rate by payment method (electronic check customers churn at 45.3%), and the ten active customers with the highest predicted churn risk.
+**Executive Summary:** headline KPIs (customers, churn rate, $139.1K monthly revenue lost to churn, $44.2K at risk from 565 current high-risk customers), churn rate by payment method (electronic check customers churn at 45.3%), and the ten active customers with the highest predicted churn risk.
 
 ![Executive Summary dashboard](powerbi/screenshots/01_executive_summary.png)
 

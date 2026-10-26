@@ -51,6 +51,7 @@ CALCULATE (
 High Risk Customers =
 CALCULATE (
     [Total Customers],
+    telco_churn_powerbi[Churned] = "No",
     telco_churn_powerbi[Churn Risk %] >= 70
 )
 
