@@ -3,18 +3,18 @@
 
 // --- Core KPIs ---
 Total Customers =
-DISTINCTCOUNT ( telco_churn_powerbi[customer_id] )
+DISTINCTCOUNT ( telco_churn_powerbi[Customer ID] )
 
 Churned Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_label] = "Yes"
+    telco_churn_powerbi[Churned] = "Yes"
 )
 
 Retained Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_label] = "No"
+    telco_churn_powerbi[Churned] = "No"
 )
 
 Churn Rate % =
@@ -25,71 +25,71 @@ Retention Rate % =
 
 Monthly Revenue Loss =
 CALCULATE (
-    SUM ( telco_churn_powerbi[monthly_charges] ),
-    telco_churn_powerbi[churn_label] = "Yes"
+    SUM ( telco_churn_powerbi[Monthly Charges] ),
+    telco_churn_powerbi[Churned] = "Yes"
 )
 
 Total Monthly Revenue =
-SUM ( telco_churn_powerbi[monthly_charges] )
+SUM ( telco_churn_powerbi[Monthly Charges] )
 
 ARPU =
-ROUND ( AVERAGE ( telco_churn_powerbi[monthly_charges] ), 2 )
+ROUND ( AVERAGE ( telco_churn_powerbi[Monthly Charges] ), 2 )
 
 ARPU Churned =
 CALCULATE (
-    AVERAGE ( telco_churn_powerbi[monthly_charges] ),
-    telco_churn_powerbi[churn_label] = "Yes"
+    AVERAGE ( telco_churn_powerbi[Monthly Charges] ),
+    telco_churn_powerbi[Churned] = "Yes"
 )
 
 ARPU Retained =
 CALCULATE (
-    AVERAGE ( telco_churn_powerbi[monthly_charges] ),
-    telco_churn_powerbi[churn_label] = "No"
+    AVERAGE ( telco_churn_powerbi[Monthly Charges] ),
+    telco_churn_powerbi[Churned] = "No"
 )
 
 // --- Risk & retention action ---
 High Risk Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_risk_pct] >= 70
+    telco_churn_powerbi[Churn Risk %] >= 70
 )
 
 Medium Risk Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_risk_pct] >= 40,
-    telco_churn_powerbi[churn_risk_pct] < 70
+    telco_churn_powerbi[Churn Risk %] >= 40,
+    telco_churn_powerbi[Churn Risk %] < 70
 )
 
 Low Risk Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_risk_pct] < 40
+    telco_churn_powerbi[Churn Risk %] < 40
 )
 
 Active High Risk Customers =
 CALCULATE (
     [Total Customers],
-    telco_churn_powerbi[churn_label] = "No",
-    telco_churn_powerbi[churn_risk_pct] >= 70
+    telco_churn_powerbi[Churned] = "No",
+    telco_churn_powerbi[Churn Risk %] >= 70
 )
 
 Revenue at Risk =
 CALCULATE (
-    SUM ( telco_churn_powerbi[monthly_charges] ),
-    telco_churn_powerbi[churn_label] = "No",
-    telco_churn_powerbi[churn_risk_pct] >= 70
+    SUM ( telco_churn_powerbi[Monthly Charges] ),
+    telco_churn_powerbi[Churned] = "No",
+    telco_churn_powerbi[Churn Risk %] >= 70
 )
 
 Avg Risk Score % =
-AVERAGE ( telco_churn_powerbi[churn_risk_pct] )
+AVERAGE ( telco_churn_powerbi[Churn Risk %] )
 
 // --- Segment churn rates ---
 Churn Rate by Context % =
 DIVIDE (
     CALCULATE (
         COUNTROWS ( telco_churn_powerbi ),
-        telco_churn_powerbi[churn_label] = "Yes"
+        telco_churn_powerbi[Churned] = "Yes"
     ),
     COUNTROWS ( telco_churn_powerbi )
 )
@@ -105,7 +105,7 @@ Churn Rate by Join Month % =
 DIVIDE (
     CALCULATE (
         COUNTROWS ( telco_churn_powerbi ),
-        telco_churn_powerbi[churn_label] = "Yes"
+        telco_churn_powerbi[Churned] = "Yes"
     ),
     COUNTROWS ( telco_churn_powerbi )
 )
@@ -113,21 +113,21 @@ DIVIDE (
 Monthly Revenue by Join Month =
 SUMX (
     VALUES ( telco_churn_powerbi[join_month] ),
-    CALCULATE ( SUM ( telco_churn_powerbi[monthly_charges] ) )
+    CALCULATE ( SUM ( telco_churn_powerbi[Monthly Charges] ) )
 )
 
 // --- Top 10 filter helper (use on table visual) ---
 Is Top 10 At Risk =
 VAR RankInActive =
     RANKX (
-        ALL ( telco_churn_powerbi[customer_id] ),
-        CALCULATE ( MAX ( telco_churn_powerbi[churn_risk_pct] ) ),
+        ALL ( telco_churn_powerbi[Customer ID] ),
+        CALCULATE ( MAX ( telco_churn_powerbi[Churn Risk %] ) ),
         ,
         DESC,
         DENSE
     )
 RETURN
-    telco_churn_powerbi[churn_label] = "No"
+    telco_churn_powerbi[Churned] = "No"
         && NOT ISBLANK ( telco_churn_powerbi[top10_risk_rank] )
         && telco_churn_powerbi[top10_risk_rank] <= 10
 
